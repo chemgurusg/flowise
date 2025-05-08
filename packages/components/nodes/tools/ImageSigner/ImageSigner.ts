@@ -29,9 +29,10 @@ class ImageSignerTool implements INode {
     label = 'Image Signer Tool';
     name = 'imageSignerTool';
     type = 'Tool';
-    icon = 'globe.svg';
+    icon = 'link.svg';
     category = 'Utilities';
     description = 'Signs image_id with token and expiry';
+    outputs = 1;
 
     inputs: INodeParams[] = [
         {
