@@ -20,6 +20,7 @@ interface INode {
     category?: string
     description?: string
     inputs?: INodeParams[]
+    outputs?: number
     run(nodeData: INodeData): Promise<any>
 }
 
@@ -29,11 +30,8 @@ class ImageSignerTool implements INode {
     label = 'Image Signer Tool';
     name = 'imageSignerTool';
     type = 'Tool';
-    icon = 'link.svg';
     category = 'Utilities';
     description = 'Signs image_id with token and expiry';
-    outputs = 1;
-
     inputs: INodeParams[] = [
         {
             label: 'Image ID',
@@ -53,6 +51,7 @@ class ImageSignerTool implements INode {
             default: 300
         }
     ];
+    outputs = 1;
 
     async run(nodeData: INodeData): Promise<any> {
         const image_id = nodeData.inputs?.image_id as string;
