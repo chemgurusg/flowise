@@ -38,11 +38,16 @@ class ImageSignerTool implements INode {
         return this.baseClasses;
     }
 
+    async init(): Promise<void> {
+    // No initialization required for this tool
+    }
+
     inputs: INodeParams[] = [
         {
             label: 'Image ID',
             name: 'image_id',
-            type: 'string'
+            type: 'string',
+            optional: true
         },
         {
             label: 'Secret Key',
