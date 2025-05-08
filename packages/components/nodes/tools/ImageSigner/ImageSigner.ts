@@ -1,4 +1,28 @@
-import { INode, INodeData, INodeParams } from '../../../interface';
+interface INodeParams {
+    label: string
+    name: string
+    type: string
+    default?: any
+    secret?: boolean
+}
+
+interface INodeData {
+    inputs?: {
+        [key: string]: string | number
+    }
+}
+
+interface INode {
+    label: string
+    name: string
+    type: string
+    icon?: string
+    category?: string
+    description?: string
+    inputs?: INodeParams[]
+    run(nodeData: INodeData): Promise<any>
+}
+
 import crypto from 'crypto';
 
 class ImageSignerTool implements INode {
