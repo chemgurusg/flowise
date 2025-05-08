@@ -32,6 +32,12 @@ class ImageSignerTool implements INode {
     type = 'Tool';
     category = 'Utilities';
     description = 'Signs image_id with token and expiry';
+    
+    baseClasses = ['Tool'];
+    getBaseClasses(): string[] {
+        return this.baseClasses;
+    }
+
     inputs: INodeParams[] = [
         {
             label: 'Image ID',
